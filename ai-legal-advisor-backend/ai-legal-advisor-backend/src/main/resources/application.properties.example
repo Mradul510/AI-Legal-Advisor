@@ -1,0 +1,26 @@
+spring.application.name=ai-legal-advisor-backend
+
+# ─── Database ────────────────────────────────────────────────────────────────
+# Copy this file as application.properties (or set the env vars below).
+spring.datasource.url=${DB_URL:jdbc:mysql://localhost:3306/lawy_bot}
+spring.datasource.username=${DB_USERNAME:your_mysql_username}
+spring.datasource.password=${DB_PASSWORD:your_mysql_password}
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+# ─── Server ──────────────────────────────────────────────────────────────────
+server.port=${PORT:8080}
+
+# ─── JWT ─────────────────────────────────────────────────────────────────────
+# Generate a strong random secret (min 256 bits / 32 chars)
+jwt.secret=${JWT_SECRET:your-super-secret-jwt-key-at-least-32-chars}
+jwt.expiration=${JWT_EXPIRATION:86400000}
+
+# ─── AI Python Service ───────────────────────────────────────────────────────
+ai.service.url=${AI_SERVICE_URL:http://localhost:8000}
+
+# ─── Spring AI (disabled – we use our own Python AI service) ─────────────────
+spring.ai.openai.api-key=${OPENAI_API_KEY:not-used}
+spring.ai.openai.chat.enabled=false
